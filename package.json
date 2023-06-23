@@ -1,5 +1,6 @@
 {
   "name": "crm_project",
+  "homepage": "http://amankumar2k15.github.io/NewDashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,6 +16,7 @@
     "emailjs": "^4.0.2",
     "emailjs-com": "^3.2.0",
     "env-cmd": "^10.1.0",
+    "gh-pages": "^5.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
@@ -29,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
