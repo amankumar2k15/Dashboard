@@ -1,0 +1,144 @@
+{
+  "Todo": [
+    {
+      "todo": "Moyank",
+      "createdAt": "6/10/2023,12:38:59 PM",
+      "updatedAt": "6/13/2023,20:35:50 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Saturday",
+      "timeTaken": "7 hr 57 min",
+      "id": 6
+    },
+    {
+      "todo": "ChandiChowk to China",
+      "createdAt": "6/10/2023,12:39:13 PM",
+      "updatedAt": "6/10/2023,18:55:18 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Friday",
+      "timeTaken": "6 hr 16 min",
+      "id": 7
+    },
+    {
+      "todo": "fan",
+      "createdAt": "6/10/2023,12:40:37 PM",
+      "updatedAt": "6/13/2023,20:37:20 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Wednesday",
+      "timeTaken": "7 hr 57 min",
+      "id": 9
+    },
+    {
+      "todo": "js",
+      "createdAt": "6/10/2023,12:40:43 PM",
+      "updatedAt": "6/11/2023,16:6:25 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Wednesday",
+      "timeTaken": "3 hr 26 min",
+      "id": 10
+    },
+    {
+      "todo": "HMTL",
+      "createdAt": "6/10/2023,12:40:46 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Saturday",
+      "timeTaken": null,
+      "id": 11
+    },
+    {
+      "todo": "Jquery",
+      "createdAt": "6/10/2023,12:40:53 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Monday",
+      "timeTaken": null,
+      "id": 12
+    },
+    {
+      "todo": "Saas",
+      "createdAt": "6/10/2023,12:40:58 PM",
+      "updatedAt": "6/11/2023,16:7:55 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Saturday",
+      "timeTaken": "3 hr 27 min",
+      "id": 13
+    },
+    {
+      "todo": "CSS",
+      "createdAt": "6/10/2023,12:41:10 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Monday",
+      "timeTaken": null,
+      "id": 14
+    },
+    {
+      "todo": "HOls`",
+      "createdAt": "6/10/2023,12:43:5 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Monday",
+      "timeTaken": null,
+      "id": 15
+    },
+    {
+      "todo": "cs",
+      "createdAt": "6/10/2023,12:43:8 PM",
+      "updatedAt": "6/11/2023,16:8:3 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Sunday",
+      "timeTaken": "3 hr 25 min",
+      "id": 16
+    },
+    {
+      "todo": "Aman Cool",
+      "createdAt": "6/10/2023,17:31:24 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Saturday",
+      "timeTaken": null,
+      "id": 17
+    },
+    {
+      "todo": "hello",
+      "createdAt": "6/11/2023, 8:52:08 PM",
+      "updatedAt": "6/13/2023, 8:53:17 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Tuesday",
+      "timeTaken": "0 hr 1 min",
+      "id": 18
+    },
+    {
+      "todo": "nistere",
+      "createdAt": "6/13/2023, 3:52:13 PM",
+      "updatedAt": "6/13/2023, 8:53:21 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Tuesday",
+      "timeTaken": "5 hr 1 min",
+      "id": 19
+    }
+  ],
+  "User": [
+    {
+      "username": "Aman Kumar",
+      "email": "aman.kumar2k15@gmail.com",
+      "contact": null,
+      "address": null,
+      "password": "Aman@12345",
+      "id": 1
+    }
+  ]
+}
