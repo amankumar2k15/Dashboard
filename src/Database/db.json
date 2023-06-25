@@ -21,16 +21,6 @@
       "id": 7
     },
     {
-      "todo": "fan",
-      "createdAt": "6/10/2023,12:40:37 PM",
-      "updatedAt": "6/13/2023,20:37:20 PM",
-      "status": "Completed",
-      "itemCount": 0,
-      "day": "Wednesday",
-      "timeTaken": "7 hr 57 min",
-      "id": 9
-    },
-    {
       "todo": "js",
       "createdAt": "6/10/2023,12:40:43 PM",
       "updatedAt": "6/11/2023,16:6:25 PM",

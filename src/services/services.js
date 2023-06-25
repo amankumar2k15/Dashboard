@@ -1,7 +1,6 @@
 import axios from "axios";
-let backendapi = 'your url';
+import { SERVER_URL } from '../constants'
 
 export const login = async (body) => {
-  return await axios.post(`${backendapi}`, body);
+  return await axios.post(SERVER_URL, body);
 };
-

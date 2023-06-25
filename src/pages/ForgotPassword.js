@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Toast from "../common/Toast"
 import axios from 'axios';
 import emailjs from 'emailjs-com';
-
+import { SERVER_URL } from '../constants';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState();
@@ -62,7 +62,7 @@ const ForgotPassword = () => {
     }
 
     const getUserData = () => {
-        axios.get("http://localhost:3200/User").then((res) => setFetchEmail(res.data[0].email)).catch((err) => console.log(err))
+        axios.get(`${SERVER_URL}/User`).then((res) => setFetchEmail(res.data[0].email)).catch((err) => console.log(err))
     }
 
     useEffect(() => {
@@ -80,7 +80,7 @@ const ForgotPassword = () => {
         else if (changePaswordData.confirmPassword <= 0) Toast(true, "To proceed, please fill the confirm password")
         else if (changePaswordData.newPassword != changePaswordData.confirmPassword) Toast(true, "Password doesn't match")
         else {
-            axios.patch("http://localhost:3200/User/1", {
+            axios.patch(`${SERVER_URL}/User/1`, {
                 password: changePaswordData.confirmPassword
             }).then((res) => {
                 console.log(res)

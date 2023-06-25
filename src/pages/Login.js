@@ -4,6 +4,7 @@ import Toast from "../common/Toast";
 import { login, terms_Condition } from "../services/services";
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
+import { SERVER_URL } from "../constants"
 
 const Login = () => {
     const [show, setShow] = useState(false);
@@ -38,7 +39,7 @@ const Login = () => {
     }
 
     const getUserData = () => {
-        axios.get('http://localhost:3200/User').then((res) => setUserData(res.data)).catch((err) => console.log(err))
+        axios.get(`${SERVER_URL}/User`).then((res) => setUserData(res.data)).catch((err) => console.log(err))
     }
     useEffect(() => {
         getUserData()

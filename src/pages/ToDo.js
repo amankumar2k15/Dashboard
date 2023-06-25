@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import emailjs from 'emailjs-com';
 import Toast from "../common/Toast";
 // import moment from "moment/moment";
+import { SERVER_URL } from '../constants';
 
 
 
@@ -12,7 +13,7 @@ const ToDo = () => {
 
 
     // code start 
-    const urlPath = "http://localhost:3200/Todo"
+    const urlPath = `${SERVER_URL}/Todo`
     var date = new Date()
     var am_pm = date.getHours() >= 12 ? "PM" : "AM";
     const day = date.getDay();

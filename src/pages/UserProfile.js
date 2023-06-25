@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Avatar from "../assets/images/avatar-1.jpg"
 import Toast from "../common/Toast";
+import { SERVER_URL } from '../constants';
 
 const UserProfile = () => {
   const [editToggle, setEditToggle] = useState(false)
@@ -19,7 +20,7 @@ const UserProfile = () => {
   })
 
   const getUserData = () => {
-    axios.get("http://localhost:3200/User").then((res) => {
+    axios.get(`${SERVER_URL}/User`).then((res) => {
       console.log(res.data[0])
       setUserObj(res.data[0])
     }).catch((err) => console.log(err))
@@ -31,7 +32,7 @@ const UserProfile = () => {
 
 
   const handleSaveData = () => {
-    axios.patch("http://localhost:3200/User/1", {
+    axios.patch(`${SERVER_URL}/User/1`, {
       username: editProfile.username ? editProfile.username : userObj.username,
       email: editProfile.email ? editProfile.email : userObj.email,
       contact: editProfile.contact,

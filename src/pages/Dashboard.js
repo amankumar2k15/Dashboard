@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom';
 import Chart from 'react-apexcharts'
 // import { Stack } from 'react-bootstrap';
+import { SERVER_URL } from '../constants';
 
 
 
 const Dashboard = () => {
+    console.log(SERVER_URL)
     const daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
-    const urlPath = "http://localhost:3200/Todo"
+    const urlPath = `${SERVER_URL}/Todo`;
     const [todoData, setTodoData] = useState([])
     const PendingCount = todoData.filter((item) => item.status === "Pending").length
     const CompletedCount = todoData.filter((item) => item.status === "Completed").length
