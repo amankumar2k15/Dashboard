@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { toast } from "react-toastify";
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 import Toast from "../common/Toast";
 import { SERVER_URL } from '../constants';
 
@@ -25,9 +25,9 @@ const ToDo = () => {
     const CompletedCount = todoData.filter((item) => item.status === "Completed").length
 
     // Email.js
-    // const USER_ID = "V7MAXBMie3CQ9wRFH";
-    // const TEMPLATE_ID = "template_pm4qf9h";
-    // const SERVICE_ID = "amankumar2k15"
+    const USER_ID = "V7MAXBMie3CQ9wRFH";
+    const TEMPLATE_ID = "template_pm4qf9h";
+    const SERVICE_ID = "amankumar2k15"
     // email.js ends
 
 
@@ -128,21 +128,21 @@ const ToDo = () => {
             timeTaken: handleTimeTaken(data.createdAt, updateAtValue)
         }).then((res) => {
             // //Send completed todo on email
-            // if (res) {
-            //     let data = {
-            //         to_email: localStorage.getItem('email'),
-            //         from_name: localStorage.getItem('username'),
-            //         todo: res.data.todo
-            //     };
-            //     emailjs.send(SERVICE_ID, TEMPLATE_ID, data, USER_ID).then(
-            //         function (response) {
-            //             console.log(response.status, response.text);
-            //         },
-            //         function (err) {
-            //             console.log(err);
-            //         }
-            //     );
-            // }
+            if (res) {
+                let data = {
+                    to_email: localStorage.getItem('email'),
+                    from_name: localStorage.getItem('username'),
+                    todo: res.data.todo
+                };
+                emailjs.send(SERVICE_ID, TEMPLATE_ID, data, USER_ID).then(
+                    function (response) {
+                        console.log(response.status, response.text);
+                    },
+                    function (err) {
+                        console.log(err);
+                    }
+                );
+            }
             getTodoData()
         }).catch((err) => console.log(err))
     }
@@ -151,7 +151,6 @@ const ToDo = () => {
     const filterPendingData = () => {
         const filterPending = todoData?.filter((item) => item.status === "Pending")
         setTodoData(filterPending)
-
     }
 
     const filterCompletedData = () => {
