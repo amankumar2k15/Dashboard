@@ -8,20 +8,14 @@ const UserProfile = () => {
   const [editToggle, setEditToggle] = useState(false)
   const [userObj, setUserObj] = useState()
   const [editProfile, setEditProfile] = useState({
-    name: null,
     username: null,
     email: null,
     password: null,
-    post: null,
-    company: null,
-    contact: null,
-    image: null,
-    address: null,
   })
 
   const getUserData = () => {
     axios.get(`${SERVER_URL}/User`).then((res) => {
-      console.log(res.data[0])
+      // console.log(res.data[0])
       setUserObj(res.data[0])
     }).catch((err) => console.log(err))
   }
@@ -64,11 +58,11 @@ const UserProfile = () => {
                 <div className='cursor-pointer'>
                   {editToggle ?
                     <>
-                      <i className='bx bxs-user-x  p-2 h3' title='Cancel' onClick={() => setEditToggle(false)}></i>
+                      <i className='bx bxs-user-x  p-2 h3' title='Cancel' onClick={() => setEditToggle(!editToggle)}></i>
                       <i className='bx bxs-user-check  h3' title='Save' onClick={handleSaveData}></i>
                     </>
                     :
-                    <i className='bx bx-edit h3' onClick={() => setEditToggle(true)}></i>}
+                    <i className='bx bx-edit h3' onClick={() => setEditToggle(!editToggle)}></i>}
                 </div>
               </div>
             </div>
@@ -86,7 +80,7 @@ const UserProfile = () => {
                       <img src={Avatar} alt="avatar"
                         className="rounded-circle img-fluid" style={{ width: '150px' }} />
                       <h5 className="my-3">Aman Kumar</h5>
-                      <p className="text-muted mb-1">Fronte nd Developer</p>
+                      <p className="text-muted mb-1">Frontend Developer</p>
                       <p className="text-muted mb-4">Sonipat (Haryana), INDIA</p>
 
                     </div>
@@ -103,7 +97,7 @@ const UserProfile = () => {
                         <div className="col-sm-9">
                           <p className="text-muted mb-0">
                             {editToggle ?
-                              <input className='form-control w-50'
+                              <input className='form-control input'
                                 onChange={(e) => setEditProfile((prev) => ({ ...prev, username: e.target.value }))}
                                 defaultValue={userObj?.username} />
                               :
@@ -119,7 +113,7 @@ const UserProfile = () => {
                         <div className="col-sm-9">
                           <p className="text-muted mb-0">
                             {editToggle ?
-                              <input className='form-control w-50'
+                              <input className='form-control input'
                                 onChange={(e) => setEditProfile((prev) => ({ ...prev, email: e.target.value }))}
                                 defaultValue={userObj?.email} />
                               :
@@ -153,7 +147,7 @@ const UserProfile = () => {
                         <div className="col-sm-9">
                           <p className="text-muted mb-0">
                             {editToggle ?
-                              <input className='form-control w-50'
+                              <input className='form-control input'
                                 onChange={(e) => setEditProfile((prev) => ({ ...prev, password: e.target.value }))}
                                 defaultValue={userObj?.password} />
                               :
@@ -163,7 +157,7 @@ const UserProfile = () => {
                       </div>
                     </div>
                   </div>
-
+                  x
                 </div>
               </div>
             </div>

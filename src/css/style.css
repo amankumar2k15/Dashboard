@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 :root {
     --bs-blue: #556ee6;
     --bs-indigo: #564ab1;
@@ -16321,15 +16322,17 @@ body[data-layout=horizontal] .footer {
 
 @media (max-width:992px) {
     .vertical-menu {
-        display: none
+        display: block;
+        width: 150px;
+        color: black;
     }
 
     .main-content {
         margin-left: 0 !important
     }
 
-    body.sidebar-enable .vertical-menu {
-        display: block
+    body .sidebar-enable .vertical-menu {
+        display: none
     }
 }
 
@@ -21292,6 +21295,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before {
     left: 20px !important;
     right: 20px !important;
 }
+
 .drop-showing {
     left: auto !important;
     right: 0 !important;
@@ -21300,6 +21304,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before {
     margin: 0px;
     transform: translate(0px, 72px);
 }
+
 .cursor-pointer {
     cursor: pointer !important;
 }

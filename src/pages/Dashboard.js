@@ -1,15 +1,13 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom';
 import Chart from 'react-apexcharts'
-// import { Stack } from 'react-bootstrap';
 import { SERVER_URL } from '../constants';
+import "./pages.css"
 
 
 
 const Dashboard = () => {
-    console.log(SERVER_URL)
-    const daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+    // console.log(SERVER_URL)
     const urlPath = `${SERVER_URL}/Todo`;
     const [todoData, setTodoData] = useState([])
     const PendingCount = todoData.filter((item) => item.status === "Pending").length
@@ -17,6 +15,7 @@ const Dashboard = () => {
 
     //To Display the list of ToDo on React-apex-chart
     const SundayCount = todoData.filter((item) => item.day === "Sunday").length
+    console.log(SundayCount)
     const MondayCount = todoData.filter((item) => item.day === "Monday").length
     const TuesdayCount = todoData.filter((item) => item.day === "Tuesday").length
     const WednesdayCount = todoData.filter((item) => item.day === "Wednesday").length
@@ -39,10 +38,10 @@ const Dashboard = () => {
 
     return (
         <div className="main-content" >
+            {console.log(todoData)}
             <div className="page-content">
                 <div className="container-fluid ">
                     {/* <!-- start page title --> */}
-
                     <div className="row">
                         <div className="col-12">
                             <div className="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -54,11 +53,11 @@ const Dashboard = () => {
 
 
                     {/*------------------------------ Count Board ------------------------------- */}
-                    <div className='my-5 col-12 mb-5 p-3 container d-flex flex-column gap-2'>
+                    <div className='my-5 container d-flex flex-column w-100  gap-2'>
 
-                        <div className="col-auto shadow-lg bg-white rounded " style={{}}>
-                            <div className="">
-                                <Chart type="pie" height={500} width={500}
+                        <div className="col-auto shadow-lg  bg-white rounded ">
+                            <div className="count_chart">
+                                <Chart type="pie"
                                     series={[PendingCount, CompletedCount]}
                                     options={{
                                         color: ["#ffc107", "#198754"],
@@ -78,10 +77,10 @@ const Dashboard = () => {
                         {/*------------------------------ Count Board ------------------------------- */}
 
 
-                        {/*------------------------------ days Board ------------------------------- */}
-                        <div className="d-flex col-auto shadow-lg bg-black rounded ">
-                            <div className="ps-3 mt-3">
-                                <Chart type="bar" height={500} width={600}
+                        {/*------------------------------ Bar Chart ------------------------------- */}
+                        <div className="d-flex col-auto shadow-lg rounded ">
+                            <div className="bar_chart">
+                                <Chart type="bar"
                                     series={[
                                         {
                                             name: "Todo",
@@ -95,7 +94,7 @@ const Dashboard = () => {
                                         },
                                         xaxis: {
                                             tickPlacement: "on",
-                                            categories: ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"],
+                                            categories: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
                                             style: {
                                                 color: ["#fff"]
                                             },
@@ -132,20 +131,8 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-
-
-
                     </div>
-                    {/*------------------------------ days Board ------------------------------- */}
-
-
-
-
-
-                    {/* --------------------------------------------- */}
-
-
-
+                    {/*------------------------------ Bar Chart ------------------------------- */}
 
                     {/* // Main End  */}
                 </div>

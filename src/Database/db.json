@@ -1,129 +1,219 @@
 {
   "Todo": [
     {
-      "todo": "Moyank",
-      "createdAt": "6/10/2023,12:38:59 PM",
-      "updatedAt": "6/13/2023,20:35:50 PM",
+      "todo": "HTML",
+      "createdAt": "6/24/2023, 10:17:46 PM",
+      "updatedAt": "6/28/2023, 11:16:18 PM",
       "status": "Completed",
-      "itemCount": 0,
-      "day": "Saturday",
-      "timeTaken": "7 hr 57 min",
-      "id": 6
-    },
-    {
-      "todo": "ChandiChowk to China",
-      "createdAt": "6/10/2023,12:39:13 PM",
-      "updatedAt": "6/10/2023,18:55:18 PM",
-      "status": "Completed",
-      "itemCount": 0,
-      "day": "Friday",
-      "timeTaken": "6 hr 16 min",
-      "id": 7
-    },
-    {
-      "todo": "js",
-      "createdAt": "6/10/2023,12:40:43 PM",
-      "updatedAt": "6/11/2023,16:6:25 PM",
-      "status": "Completed",
-      "itemCount": 0,
-      "day": "Wednesday",
-      "timeTaken": "3 hr 26 min",
-      "id": 10
-    },
-    {
-      "todo": "HMTL",
-      "createdAt": "6/10/2023,12:40:46 PM",
-      "updatedAt": null,
-      "status": "Pending",
-      "itemCount": 0,
-      "day": "Saturday",
-      "timeTaken": null,
-      "id": 11
-    },
-    {
-      "todo": "Jquery",
-      "createdAt": "6/10/2023,12:40:53 PM",
-      "updatedAt": null,
-      "status": "Pending",
       "itemCount": 0,
       "day": "Monday",
-      "timeTaken": null,
-      "id": 12
-    },
-    {
-      "todo": "Saas",
-      "createdAt": "6/10/2023,12:40:58 PM",
-      "updatedAt": "6/11/2023,16:7:55 PM",
-      "status": "Completed",
-      "itemCount": 0,
-      "day": "Saturday",
-      "timeTaken": "3 hr 27 min",
-      "id": 13
+      "timeTaken": "4 day 0 hr 58 min",
+      "id": 1
     },
     {
       "todo": "CSS",
-      "createdAt": "6/10/2023,12:41:10 PM",
+      "createdAt": "6/21/2023, 10:25:34 PM",
+      "updatedAt": "6/28/2023, 11:16:30 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Monday",
+      "timeTaken": "7 day 0 hr 50 min",
+      "id": 2
+    },
+    {
+      "todo": "JavaScript",
+      "createdAt": "6/18/2023, 10:25:47 PM",
+      "updatedAt": "6/28/2023, 11:16:44 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Monday",
+      "timeTaken": "10 day 0 hr 50 min",
+      "id": 3
+    },
+    {
+      "todo": "Jquery",
+      "createdAt": "6/28/2023, 10:26:01 PM",
+      "updatedAt": "6/28/2023, 11:16:46 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Tuesday",
+      "timeTaken": " 0 hr 50 min",
+      "id": 4
+    },
+    {
+      "todo": "Angular.js",
+      "createdAt": "6/28/2023, 10:26:12 PM",
       "updatedAt": null,
       "status": "Pending",
       "itemCount": 0,
-      "day": "Monday",
+      "day": "Tuesday",
+      "timeTaken": null,
+      "id": 5
+    },
+    {
+      "todo": "Oracle",
+      "createdAt": "6/28/2023, 10:26:22 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Wednesday",
+      "timeTaken": null,
+      "id": 6
+    },
+    {
+      "todo": "Dot net",
+      "createdAt": "6/28/2023, 10:26:27 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Wednesday",
+      "timeTaken": null,
+      "id": 7
+    },
+    {
+      "todo": "SCSS",
+      "createdAt": "6/28/2023, 10:26:33 PM",
+      "updatedAt": "6/28/2023, 11:16:48 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Wednesday",
+      "timeTaken": " 0 hr 50 min",
+      "id": 8
+    },
+    {
+      "todo": "GIT",
+      "createdAt": "6/28/2023, 10:26:50 PM",
+      "updatedAt": "6/28/2023, 11:16:53 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Wednesday",
+      "timeTaken": " 0 hr 50 min",
+      "id": 9
+    },
+    {
+      "todo": "Postman",
+      "createdAt": "6/28/2023, 10:26:58 PM",
+      "updatedAt": "6/28/2023, 11:16:55 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Thursday",
+      "timeTaken": " 0 hr 49 min",
+      "id": 10
+    },
+    {
+      "todo": "Tailwind CSS",
+      "createdAt": "6/28/2023, 10:27:52 PM",
+      "updatedAt": "6/28/2023, 11:16:56 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Thursday",
+      "timeTaken": " 0 hr 49 min",
+      "id": 11
+    },
+    {
+      "todo": "JSON",
+      "createdAt": "6/28/2023, 10:27:55 PM",
+      "updatedAt": "6/28/2023, 11:16:58 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Thursday",
+      "timeTaken": " 0 hr 49 min",
+      "id": 12
+    },
+    {
+      "todo": "ReactJS",
+      "createdAt": "6/28/2023, 10:28:01 PM",
+      "updatedAt": "6/28/2023, 11:17:00 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Friday",
+      "timeTaken": " 0 hr 48 min",
+      "id": 13
+    },
+    {
+      "todo": "React Native",
+      "createdAt": "6/28/2023, 09:18:07 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Friday",
       "timeTaken": null,
       "id": 14
     },
     {
-      "todo": "HOls`",
-      "createdAt": "6/10/2023,12:43:5 PM",
-      "updatedAt": null,
-      "status": "Pending",
+      "todo": "Bootstrap 5",
+      "createdAt": "6/28/2023, 08:28:16 PM",
+      "updatedAt": "6/28/2023, 11:17:02 PM",
+      "status": "Completed",
       "itemCount": 0,
-      "day": "Monday",
-      "timeTaken": null,
+      "day": "Saturday",
+      "timeTaken": " 2 hr 48 min",
       "id": 15
     },
     {
-      "todo": "cs",
-      "createdAt": "6/10/2023,12:43:8 PM",
-      "updatedAt": "6/11/2023,16:8:3 PM",
-      "status": "Completed",
-      "itemCount": 0,
-      "day": "Sunday",
-      "timeTaken": "3 hr 25 min",
-      "id": 16
-    },
-    {
-      "todo": "Aman Cool",
-      "createdAt": "6/10/2023,17:31:24 PM",
+      "todo": "C#",
+      "createdAt": "6/28/2023, 11:00:22 PM",
       "updatedAt": null,
       "status": "Pending",
       "itemCount": 0,
       "day": "Saturday",
       "timeTaken": null,
+      "id": 16
+    },
+    {
+      "todo": "VS Code",
+      "createdAt": "6/28/2023, 10:09:36 PM",
+      "updatedAt": "6/28/2023, 11:17:06 PM",
+      "status": "Completed",
+      "itemCount": 0,
+      "day": "Sunday",
+      "timeTaken": " 1 hr 7 min",
       "id": 17
     },
     {
-      "todo": "hello",
-      "createdAt": "6/11/2023, 8:52:08 PM",
-      "updatedAt": "6/13/2023, 8:53:17 PM",
+      "todo": "Replit",
+      "createdAt": "6/28/2023, 11:00:39 PM",
+      "updatedAt": "6/28/2023, 11:17:08 PM",
       "status": "Completed",
       "itemCount": 0,
-      "day": "Tuesday",
-      "timeTaken": "0 hr 1 min",
+      "day": "Sunday",
+      "timeTaken": " 0 hr 16 min",
       "id": 18
     },
     {
-      "todo": "nistere",
-      "createdAt": "6/13/2023, 3:52:13 PM",
-      "updatedAt": "6/13/2023, 8:53:21 PM",
-      "status": "Completed",
+      "todo": "Java",
+      "createdAt": "6/28/2023, 09:02:46 PM",
+      "updatedAt": null,
+      "status": "Pending",
       "itemCount": 0,
-      "day": "Tuesday",
-      "timeTaken": "5 hr 1 min",
+      "day": "Sunday",
+      "timeTaken": null,
       "id": 19
+    },
+    {
+      "todo": "Python",
+      "createdAt": "6/28/2023, 10:04:50 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Sunday",
+      "timeTaken": null,
+      "id": 20
+    },
+    {
+      "todo": "My Sql",
+      "createdAt": "6/26/2023, 10:09:58 PM",
+      "updatedAt": null,
+      "status": "Pending",
+      "itemCount": 0,
+      "day": "Saturday",
+      "timeTaken": null,
+      "id": 21
     }
   ],
   "User": [
     {
-      "username": "Aman Kumar",
+      "username": "Aman Kumar singh",
       "email": "aman.kumar2k15@gmail.com",
       "contact": null,
       "address": null,

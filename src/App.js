@@ -1,11 +1,14 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, useLocation, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Wrapper from './layouts/Wrapper';
-import { ToastContainer } from 'react-toastify';
+import ForgotPassword from './pages/ForgotPassword';
+
 // Toaster css 
 import 'react-toastify/dist/ReactToastify.css';
-import ForgotPassword from './pages/ForgotPassword';
+import { ToastContainer } from 'react-toastify';
+
+
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -29,18 +32,16 @@ const App = () => {
   };
 
   return (
-    <Fragment>
-      <ToastContainer />
+    <>
+      <ToastContainer position="top-center" autoClose={2000} />
       {
-        location.pathname === "" ||
-          location.pathname === "/login" ||
-          location.pathname === "/forgotpassword" ||
-          location.pathname === "/" ? (
+        location.pathname === "" || location.pathname === "/login" || location.pathname === "/forgotpassword" || location.pathname === "/"
+          ?
           gotoLogin()
-        ) :
+          :
           <Wrapper />
       }
-    </Fragment>
+    </>
   );
 }
 

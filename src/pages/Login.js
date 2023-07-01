@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Toast from "../common/Toast";
-import { login, terms_Condition } from "../services/services";
-import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
 import { SERVER_URL } from "../constants"
+import LeftPage from "./LeftPage";
 
 const Login = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    // const [acceptTerms, setTerms] = useState(false)
     const [userData, setUserData] = useState([])
     const [preview, setpreview] = useState(false);
     const [credentials, setCredentials] = useState({
@@ -18,9 +13,10 @@ const Login = () => {
         password: ""
     });
     const navigate = useNavigate();
+    // console.log(navigate)
 
     const handleSubmit = () => {
-        console.log(userData)
+        // console.log(userData)
         if (!credentials.username) {
             Toast(true, 'please enter username')
         } else if (!credentials.password) {
@@ -50,50 +46,7 @@ const Login = () => {
         <div>
             <div className="container-fluid p-0">
                 <div className="row g-0">
-                    <div className="col-xl-9">
-                        <div className="auth-full-bg pt-lg-5 p-4">
-                            <div className="w-100">
-                                <div className="bg-overlay"></div>
-                                <div className="d-flex h-100 flex-column">
-
-                                    <div className="p-4 mt-auto">
-                                        <div className="row justify-content-center">
-                                            <div className="col-lg-7">
-                                                <div className="text-center">
-
-                                                    <h4 className="mb-3"><i className="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span className="text-primary">5k</span>+ Satisfied clients</h4>
-
-                                                    <div dir="ltr">
-                                                        <div className="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
-                                                            <div className="item">
-                                                                <div className="py-3">
-                                                                    <p className="font-size-16 mb-4">" Fantastic theme with a ton of options. If you just want the HTML to integrate with your project, then this is the package. You can find the files in the 'dist' folder...no need to install git and all the other stuff the documentation talks about. "</p>
-
-                                                                    <div>
-                                                                        <h4 className="font-size-16 text-primary">Abs1981</h4>
-                                                                        <p className="font-size-14 mb-0">- Skote User</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="item">
-                                                                <div className="py-3">
-                                                                    <p className="font-size-16 mb-4">" If Every Vendor on Envato are as supportive as Themesbrand, Development with be a nice experience. You guys are Wonderful. Keep us the good work. "</p>
-                                                                    <div>
-                                                                        <h4 className="font-size-16 text-primary">nezerious</h4>
-                                                                        <p className="font-size-14 mb-0">- Skote User</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <LeftPage />
                     <div className="col-xl-3">
                         <div className="auth-full-page-content p-md-5 p-4">
                             <div className="w-100">
@@ -148,8 +101,6 @@ const Login = () => {
                                                 <div className="mt-3 d-grid">
                                                     <button className="btn btn-primary waves-effect waves-light" type="button" onClick={handleSubmit}>Log In</button>
                                                 </div>
-
-
 
 
                                             </form>

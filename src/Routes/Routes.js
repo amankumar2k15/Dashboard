@@ -2,18 +2,20 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "../common/Loader";
 import loadable from "@loadable/component";
-import UserProfile from "../pages/UserProfile";
 
 const Dashboard = loadable(() => import("../pages/Dashboard"), {
-  fallback: <Loader />,
-});
-const Nopage = loadable(() => import("./error"), {
   fallback: <Loader />,
 });
 const ToDo = loadable(() => import("../pages/ToDo"), {
   fallback: <Loader />,
 });
+const UserProfile = loadable(() => import("../pages/UserProfile"), {
+  fallback: <Loader />,
+});
 const Settings = loadable(() => import("../pages/Settings"), {
+  fallback: <Loader />,
+});
+const Nopage = loadable(() => import("./error"), {
   fallback: <Loader />,
 });
 

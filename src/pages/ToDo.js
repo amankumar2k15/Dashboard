@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { toast } from "react-toastify";
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 import Toast from "../common/Toast";
-// import moment from "moment/moment";
 import { SERVER_URL } from '../constants';
 
 
 
+// code start 
 const ToDo = () => {
-
-
-
-    // code start 
     const urlPath = `${SERVER_URL}/Todo`
     var date = new Date()
-    var am_pm = date.getHours() >= 12 ? "PM" : "AM";
     const day = date.getDay();
     const daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
     const [todoName, setTodoName] = useState(null);
@@ -30,9 +25,9 @@ const ToDo = () => {
     const CompletedCount = todoData.filter((item) => item.status === "Completed").length
 
     // Email.js
-    const USER_ID = "V7MAXBMie3CQ9wRFH";
-    const TEMPLATE_ID = "template_pm4qf9h";
-    const SERVICE_ID = "amankumar2k15"
+    // const USER_ID = "V7MAXBMie3CQ9wRFH";
+    // const TEMPLATE_ID = "template_pm4qf9h";
+    // const SERVICE_ID = "amankumar2k15"
     // email.js ends
 
 
@@ -40,7 +35,7 @@ const ToDo = () => {
         if (todoName) {
             axios.post(urlPath, {
                 todo: todoName,
-                createdAt: (`${date.toLocaleDateString()},${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${am_pm}`),
+                createdAt: (`${date.toLocaleString()}`),
                 updatedAt: null,
                 status: "Pending",
                 itemCount: 0,
@@ -63,6 +58,7 @@ const ToDo = () => {
 
     const getTodoData = () => {
         axios.get(urlPath).then((res) => {
+            console.log(res.data)
             setTodoData(res.data)
         }).catch((err) => console.log(err))
     }
@@ -75,11 +71,8 @@ const ToDo = () => {
         axios.delete(`${urlPath}/${data.id}`).then((res) => {
             console.log(res)
             getTodoData()
-            // toast.error(`${data.todo} deleted successfully`)
             Toast(true, `${data.todo} deleted successfully`)
-        }).catch((err) => {
-            console.log(err)
-        })
+        }).catch((err) => console.log(err))
     }
 
 
@@ -113,34 +106,24 @@ const ToDo = () => {
     }
 
 
-
     const handleTimeTaken = (createdAt, updateAt) => {
-        let [startHour, startMinute] = createdAt.split(',')[1].slice(0, 6).split(":")
-        let [endHour, endMinute] = updateAt.split(',')[1].slice(0, 6).split(":")
+        // Convert the timestamps to JavaScript Date objects
+        const createdDate = new Date(createdAt);
+        const updatedDate = new Date(updateAt);
+        // Calculated time difference in milliseconds
+        const timeDiff = updatedDate.getTime() - createdDate.getTime();
+        // Convert time difference in (days, hours, minutes)
+        let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        days = (days === 0) ? '' : `${days} day`
+        const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
 
-        // Convert the hours and minutes of both readings to minutes
-        const totalMinutes1 = +startMinute + +(startHour * 60);
-        const totalMinutes2 = +endMinute + +(endHour * 60);
-
-        // Calculate the time difference
-        let timeDifference = totalMinutes2 - totalMinutes1;
-        console.log(timeDifference)
-
-        // Handle negative time difference (spanning across two days)
-        if (timeDifference < 0) {
-            timeDifference = Math.abs(timeDifference * 60); // Assuming a 24-hour day
-        }
-
-        // Convert time difference back to hours and minutes format
-        const diffHours = Math.floor(timeDifference / 60);
-        const diffMinutes = timeDifference % 60;
-
-        return (`${diffHours} hr ${diffMinutes} min`)
+        return (`${days} ${hours} hr ${minutes} min`);
     }
 
 
     const handleCheckBox = (data) => {
-        let updateAtValue = `${date.toLocaleDateString()},${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${am_pm}`
+        let updateAtValue = `${date.toLocaleString()}`
         axios.patch(`${urlPath}/${data.id}`, {
             status: "Completed",
             updatedAt: updateAtValue,
@@ -170,6 +153,7 @@ const ToDo = () => {
     const filterPendingData = () => {
         const filterPending = todoData?.filter((item) => item.status === "Pending")
         setTodoData(filterPending)
+
     }
 
     const filterCompletedData = () => {
@@ -197,11 +181,11 @@ const ToDo = () => {
 
                         {/* Main Section Start*/}
                         <section >
-                            <div className="d-flex justify-content-between align-items-center px-3" style={{ background: "rgb(225 225 225)" }} >
-                                <div className="d-flex flex-row gap-3">
-                                    <h1 className="text-black py-2 fa-2x">To Do </h1>
-                                    <div className="d-flex flex-row  align-items-center gap-2">
-                                        <input type="text" className="form-control form-control-lg text-black "
+                            <div className="d-flex justify-content-between align-items-center px-sm-3 px-1" style={{ background: "rgb(225 225 225)" }} >
+                                <div className="d-flex gap-2 py-2 flex-row ">
+                                    <h1 className="text-black pt-1 px-2 fa-2x">To Do </h1>
+                                    <div className="d-flex flex-row  align-items-center ">
+                                        <input type="text" className="form-control d-none d-md-block form-control-lg w-75 text-black "
                                             placeholder="Search"
                                             onChange={(e) => setSearchVal(e.target.value)}
                                         />
@@ -212,23 +196,23 @@ const ToDo = () => {
                                 <div className="d-flex flex-row align-items-center gap-2 ">
                                     <a href="#!" data-mdb-toggle="tooltip" title="Pending todo">
                                         <div className="">
-                                            <button type="button" className="btn border-0 btn-primary" onClick={filterPendingData} style={{ backgroundColor: "rgb(22 129 46)" }}>Pending {PendingCount}</button>
+                                            <button type="button" className="btn border-0 d-none d-xl-block   btn-primary" onClick={filterPendingData} style={{ backgroundColor: "rgb(22 129 46)" }}>Pending {PendingCount}</button>
                                         </div>
                                     </a>
                                     <a href="#!" data-mdb-toggle="tooltip" title="Complete todo">
                                         <div>
-                                            <button type="button" className="btn border-0 btn-primary " onClick={filterCompletedData} style={{ backgroundColor: "crimson" }}>Completed {CompletedCount}</button>
+                                            <button type="button" className="btn border-0 d-none d-xl-block  btn-primary " onClick={filterCompletedData} style={{ backgroundColor: "crimson" }}>Completed {CompletedCount}</button>
                                         </div>
                                     </a>
 
                                     <div className="card-body">
-                                        <div className="d-flex flex-row align-items-center gap-2">
-                                            <input type="text" className="form-control form-control-lg text-black " id="todo"
+                                        <div className="d-flex flex-column flex-sm-row align-items-center gap-2">
+                                            <input type="text" className="form-control  w-75 form-control-lg text-black " id="todo"
                                                 placeholder="Add new . . . " onChange={(e) => setTodoName(e.target.value)} />
 
                                             <div>
                                                 {/* <!-- Button trigger modal --> */}
-                                                <button type="button" className="btn btn-primary" title="Add ToDo" data-toggle="modal" data-target="#exampleModalCenter" style={{ backgroundColor: "#0d61d6", width: "100px" }}
+                                                <button type="button" className="btn  btn-primary" title="Add ToDo" data-toggle="modal" data-target="#exampleModalCenter" style={{ backgroundColor: "#0d61d6", width: "100px" }}
                                                     onClick={handleSubmitTodo}>
                                                     Add ToDo
                                                 </button>
@@ -240,17 +224,17 @@ const ToDo = () => {
 
 
 
-                            <div className=" text-white " style={{ background: "#3c3f4c" }} >
+                            <div className=" text-white mw-100 " style={{ background: "#3c3f4c" }} >
                                 <ul className="flex-row d-flex justify-content-evenly w-100 mb-0" style={{ borderBottom: "1px solid white" }}>
-                                    <li className=" lead fw-bolder mb-0 font-size-14 py-2  w-25 list-group" style={{ marginLeft: "-20px" }}>ID</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2  w-50 list-group-item " style={{ marginLeft: "-20px" }}>Status</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2 w-75 list-group-item ">Task</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2 w-75 list-group-item ">Created At</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2 w-75 list-group-item ">Updated At</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2 w-75 list-group-item ">Time Taken</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2 w-50 list-group-item ">Day</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2 w-50 list-group-item ">Mark As Done</li>
-                                    <li className="lead fw-bolder mb-0 font-size-14 py-2 w-75 list-group-item">Actions Button</li>
+                                    <li className=" lead fw-bolder mb-0 font-size-14  py-2  w-25 list-group" style={{ marginLeft: "-20px" }}>ID</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14 d-none d-sm-block  py-2  w-50 list-group-item " style={{ marginLeft: "-20px" }}>Status</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14  py-2 w-75 list-group-item ">Task</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14 d-none d-xl-block py-2 w-75 list-group-item ">Created At</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14 d-none d-xxl-block py-2 w-75 list-group-item ">Updated At</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14 d-none d-xxl-block py-2 w-75 list-group-item ">Time Taken</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14 d-none d-sm-block py-2 w-50 list-group-item ">Day</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14  py-2 w-50 list-group-item ">Mark As Done</li>
+                                    <li className="lead fw-bolder mb-0 font-size-14  py-2 w-75 list-group-item">Actions Button</li>
                                 </ul>
 
                                 {
@@ -263,7 +247,7 @@ const ToDo = () => {
                                                 <li className="lead mb-0 font-size-13 fw-medium py-2 w-25 list-group" style={{ marginLeft: "-20px" }}>
                                                     {item.id}
                                                 </li>
-                                                <li className={`${item.status === "Pending" ? "text-warning" : item.status === "Completed" && { crimsonColor }} lead mb-0 font-size-14 fw-medium py-2 w-50 list-group-item `} style={{ color: "crimson", marginLeft: "-20px" }}>
+                                                <li className={`${item.status === "Pending" ? "text-warning" : item.status === "Completed" && { crimsonColor }} d-none d-sm-block lead mb-0 font-size-14 fw-medium py-2 w-50 list-group-item `} style={{ color: "crimson", marginLeft: "-20px" }}>
                                                     {item.status}
                                                 </li>
                                                 <li className="lead mb-0 font-size-13 fw-medium py-2 w-75 list-group-item ">
@@ -272,27 +256,27 @@ const ToDo = () => {
                                                             <input autoFocus defaultValue={item.todo} type="text" className="w-75 form-control fa-medium font-size-14 form-control-sm text-black "
                                                                 onChange={(e) => setInputTodo(e.target.value)} />
                                                             :
-                                                            <span className=" w-25 font-size-14  mb-0">{item.todo}</span>
+                                                            <span className=" w-25 font-size-13  mb-0">{item.todo}</span>
                                                     }
                                                 </li>
-                                                <li className="lead mb-0 font-size-13 fw-medium py-2 w-75 list-group-item ">
+                                                <li className="lead mb-0 font-size-12 d-none d-xl-block  fw-medium py-2 w-75 list-group-item ">
                                                     {item.createdAt}
                                                 </li>
-                                                <li className="lead mb-0 font-size-13 fw-medium py-2 w-75 list-group-item ">
+                                                <li className="lead mb-0 font-size-12 d-none d-xxl-block  fw-medium py-2 w-75 list-group-item ">
                                                     {item.updatedAt}
                                                 </li>
-                                                <li className="lead mb-0 font-size-13 fw-medium py-2 w-75 list-group-item ">
+                                                <li className="lead mb-0 font-size-12 d-none d-xxl-block  fw-medium py-2 w-75 list-group-item ">
                                                     {item.timeTaken}
                                                 </li>
-                                                <li className="lead mb-0 font-size-13 fw-medium py-2 w-50 list-group-item ">
+                                                <li className="lead mb-0 font-size-12 d-none d-sm-block  fw-medium py-2 w-50 list-group-item ">
                                                     {item.day}
                                                 </li>
-                                                <li className="lead mb-0 font-size-13 fw-medium py-2 w-50  list-group-item ">
+                                                <li className="lead mb-0 font-size-12 fw-medium py-2 w-50  list-group-item ">
                                                     <input className="form-check-input me-0" disabled={item.status === "Completed" && true} type="checkbox" defaultChecked={item.status === "Completed" && true} id="checkbox"
                                                         aria-label="..." onClick={() => handleCheckBox(item)} />
                                                 </li>
                                                 <li className="w-75 list-group-item">
-                                                    <div className="d-flex flex-row align-items-center gap-2 ">
+                                                    <div className="d-flex flex-column flex-sm-row align-items-center gap-2 ">
 
                                                         {
                                                             editButtonToggle && rowIndex === index ?
@@ -310,7 +294,7 @@ const ToDo = () => {
                                                                 :
                                                                 <>
                                                                     <a href="#!" data-mdb-toggle="tooltip" title="Edit todo">
-                                                                        <button type="button" className="btn border-0 btn-primary" disabled={item.status === "Completed" && true || item.itemCount === 2 && true} style={{ backgroundColor: "#091bb8" }}
+                                                                        <button type="button" className="btn border-0 btn-primary" disabled={item.status === "Completed" && true || item.itemCount === 2 && true} style={{ backgroundColor: "#091bb8", width: "65px" }}
                                                                             onClick={() => handleEditTodo(item, index)}>Edit</button>
                                                                     </a>
 
@@ -339,3 +323,11 @@ const ToDo = () => {
 }
 
 export default ToDo;
+
+
+
+
+
+
+
+

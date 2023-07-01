@@ -1,2 +1,2 @@
-user Name : admin@gmail.com 
-Password: dice@123
+user Name : Aman Kumar
+Password: Aman@12345
