@@ -58,7 +58,7 @@ const ToDo = () => {
 
     const getTodoData = () => {
         axios.get(urlPath).then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setTodoData(res.data)
         }).catch((err) => console.log(err))
     }
@@ -69,7 +69,7 @@ const ToDo = () => {
 
     const handleDeleteTodo = (data) => {
         axios.delete(`${urlPath}/${data.id}`).then((res) => {
-            console.log(res)
+            // console.log(res)
             getTodoData()
             Toast(true, `${data.todo} deleted successfully`)
         }).catch((err) => console.log(err))
@@ -89,15 +89,13 @@ const ToDo = () => {
             todo: inputTodo,
             itemCount: data.itemCount + 1
         }).then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setEditButtonToggle(false)
             setEditInputSpanToggle(false)
             toast.success("Item updated successfully")
             getTodoData()
             setInputTodo(null)
-        }).catch((err) => {
-            console.log(err)
-        })
+        }).catch((err) => console.log(err))
     }
 
     const handleCancelTodo = () => {

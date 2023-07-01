@@ -37,7 +37,7 @@ const ForgotPassword = () => {
                 if (response.status === 200) {
                     setChangePassScreen(true)
                 }
-                console.log(response.status, response.text);
+                // console.log(response.status, response.text);
             },
             function (err) {
                 console.log(err);
@@ -49,7 +49,7 @@ const ForgotPassword = () => {
     const sendOTP = (e) => {
         e.preventDefault();
         setLoding(true)
-        console.log(fetchEmail)
+        // console.log(fetchEmail)
         if (fetchEmail === email) {
             let randomOtp = Math.ceil(Math.random(100) * 10000)
             setGenerateOtp(randomOtp)

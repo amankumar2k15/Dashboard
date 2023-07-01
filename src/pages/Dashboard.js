@@ -15,7 +15,7 @@ const Dashboard = () => {
 
     //To Display the list of ToDo on React-apex-chart
     const SundayCount = todoData.filter((item) => item.day === "Sunday").length
-    console.log(SundayCount)
+    // console.log(SundayCount)
     const MondayCount = todoData.filter((item) => item.day === "Monday").length
     const TuesdayCount = todoData.filter((item) => item.day === "Tuesday").length
     const WednesdayCount = todoData.filter((item) => item.day === "Wednesday").length
@@ -38,7 +38,6 @@ const Dashboard = () => {
 
     return (
         <div className="main-content" >
-            {console.log(todoData)}
             <div className="page-content">
                 <div className="container-fluid ">
                     {/* <!-- start page title --> */}

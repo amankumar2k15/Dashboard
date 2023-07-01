@@ -38,7 +38,7 @@ const UserProfile = () => {
       setEditToggle(false)
       getUserData()
       // setEditProfile(null)
-      console.log(res)
+      // console.log(res)
     }).catch((err) => console.log(err))
   }
 
